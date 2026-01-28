@@ -1,0 +1,17 @@
+:root {
+
+    --glass: rgba(255, 255, 255, 0.2);
+}
+.hourly-forecast {
+    margin: 20px 0;
+    padding: 15px 0;
+    border-top: 1px solid var(--glass);
+}
+
+.hourly-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 15px;
+    text-align: left;
+}
