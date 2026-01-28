@@ -46,3 +46,36 @@
 #search-btn.active .cerrar {
     display: inline-block;
 }
+
+.main-btn {
+    background: var( --glass);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    font-size: 1.2rem;
+}
+
+#city-input {
+    margin-top: 2px;
+    background: var(--dark-search);
+    border: 1px solid #230101;
+    color: white;
+
+    padding: 6px 12px;
+    border-radius: 15px;
+    border-radius: 20px;
+    outline: none;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+#city-input.error{
+    border: 1px solid #8b0000;
+}
