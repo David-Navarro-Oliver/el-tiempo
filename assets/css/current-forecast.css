@@ -16,3 +16,10 @@
     font-weight: 300;
     margin-top: 10px;
 }
+
+.description {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-top: 10px;
+    opacity: 0.9;
+}
