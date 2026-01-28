@@ -21,3 +21,28 @@
     flex-direction: column;
     gap: 8px;
 }
+
+.search-box {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.search-box.active {
+    max-width: 200px;
+    opacity: 1;
+}
+
+#search-btn .cerrar {
+    display: none;
+}
+#search-btn .lupa {
+    display: inline-block;
+}
+#search-btn.active .lupa {
+    display: none;
+}
+#search-btn.active .cerrar {
+    display: inline-block;
+}
