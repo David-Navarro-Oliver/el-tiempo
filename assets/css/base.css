@@ -1,0 +1,6 @@
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.12);
+  --text-color: #ffffff;
+    --bg-gradient: rgba(135, 207, 235, 0);
+    --bg-url : url("../img/background.png")
+}
