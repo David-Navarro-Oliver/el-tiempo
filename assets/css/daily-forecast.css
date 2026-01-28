@@ -1,0 +1,44 @@
+:root {
+  --glass: rgba(255, 255, 255, 0.2);
+}
+
+.daily-forecast {
+  margin: 20px 0 0;
+  padding: 15px 0 0;
+  border-top: 1px solid var(--glass);
+}
+
+.daily-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.daily-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.day-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--glass);
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+.day-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.day-temps {
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.95;
+}
