@@ -1,0 +1,263 @@
+[
+  {
+    "weatherCode": 0,
+    "label": "Cielo despejado",
+    "hourIcon": "☀️",
+    "class": "sunny",
+    "intensity":"N/A",
+    "backgroundColor": "#87CEEB", 
+    "charIcon": "./assets/img/rengoku_sol.png"
+  },
+  {
+    "weatherCode": 1,
+    "label": "Principalmente despejado",
+    "hourIcon": "🌤️",
+    "class": "sunny",
+    "intensity":"N/A",
+    "backgroundColor": "#38B0DE", 
+    "charIcon": "./assets/img/rengoku_sol.png"
+  },
+  {
+    "weatherCode": 2,
+    "label": "Nubosidad parcial",
+    "hourIcon": "⛅",
+    "class": "cloudy",
+    "intensity":"low",
+    "backgroundColor": "#6db4ed",
+    "charIcon": "./assets/img/rengoku_sol.png"
+  },
+  {
+    "weatherCode": 3,
+    "label": "Cubierto",
+    "hourIcon": "☁️",
+    "class": "cloudy",
+    "intensity":"high",
+    "backgroundColor": "#6db4ed",
+    "charIcon": "./assets/img/rengoku_sol.png"
+  },
+  {
+    "weatherCode": 45,
+    "label": "Niebla",
+    "hourIcon": "🌫️",
+    "class": "foggy",
+    "intensity":"N/A",
+    "backgroundColor": "#7DA1A4",
+    "charIcon": "./assets/img/tokito_niebla.png"
+  },
+  {
+    "weatherCode": 48,
+    "label": "Niebla con escarcha",
+    "hourIcon": "🌫️❄️",
+    "class": "foggy",
+    "intensity":"N/A",
+    "backgroundColor": "#BDD3D5",
+    "charIcon": "./assets/img/tokito_niebla.png"
+  },
+  {
+    "weatherCode": 51,
+    "label": "Llovizna ligera",
+    "hourIcon": "🌦️",
+    "class": "rainy",
+    "intensity":"low",
+    "backgroundColor": "#B0E0E6",
+    "charIcon": "./assets/img/tanjiro_sol_lluvia.png"
+  },
+  {
+    "weatherCode": 53,
+    "label": "Llovizna moderada",
+    "hourIcon": "🌦️",
+    "class": "rainy",
+    "intensity":"low",
+    "backgroundColor": "#7FB3D5",
+    "charIcon": "./assets/img/tanjiro_sol_lluvia.png"
+  },
+  {
+    "weatherCode": 55,
+    "label": "Llovizna densa",
+    "hourIcon": "🌦️",
+    "class": "rainy",
+    "intensity":"low",
+    "backgroundColor": "#5499C7",
+    "charIcon": "./assets/img/tanjiro_sol_lluvia.png"
+  },
+  {
+    "weatherCode": 56,
+    "label": "Llovizna gélida ligera",
+    "hourIcon": "🌨️",
+    "class": "snowy",
+    "intensity":"low",
+    "backgroundColor": "#EAEFF2",
+    "charIcon": "./assets/img/nezuko_nieve.png"
+  },
+  {
+    "weatherCode": 57,
+    "label": "Llovizna gélida densa",
+    "hourIcon": "🌨️",
+    "class": "snowy",
+    "intensity":"heavy",
+    "backgroundColor": "#EAEFF2",
+    "charIcon": "./assets/img/nezuko_nieve.png"
+  },
+  {
+    "weatherCode": 61,
+    "label": "Lluvia débil",
+    "hourIcon": "🌧️",
+    "class": "rainy",
+    "intensity":"medium",
+    "backgroundColor": "#5DADE2",
+    "charIcon": "./assets/img/tomioka_lluvia.png"
+  },
+  {
+    "weatherCode": 63,
+    "label": "Lluvia moderada",
+    "hourIcon": "🌧️",
+    "class": "rainy",
+    "intensity":"medium",
+    "backgroundColor": "#2E86C1",
+    "charIcon": "./assets/img/tomioka_lluvia.png"
+  },
+  {
+    "weatherCode": 65,
+    "label": "Lluvia fuerte",
+    "hourIcon": "🌧️",
+    "class": "rainy",
+    "intensity":"heavy",
+    "backgroundColor": "#1B4F72",
+    "charIcon": "./assets/img/tomioka_lluvia.png"
+  },
+  {
+    "weatherCode": 66,
+    "label": "Lluvia gélida ligera",
+    "hourIcon": "❄️🌧️",
+    "class": "snowy",
+    "intensity":"low",
+    "backgroundColor": "#EAEFF2",
+    "charIcon": "./assets/img/nezuko_nieve.png"
+  },
+  {
+    "weatherCode": 67,
+    "label": "Lluvia gélida fuerte",
+    "hourIcon": "❄️🌧️",
+    "class": "snowy",
+    "intensity":"heavy",
+    "backgroundColor": "#EAEFF2",
+    "charIcon": "./assets/img/nezuko_nieve.png"
+  },
+  {
+    "weatherCode": 71,
+    "label": "Nieve débil",
+    "hourIcon": "❄️",
+    "class": "snowy",
+    "intensity":"low",
+    "backgroundColor": "#EAEFF2",
+    "charIcon": "./assets/img/nezuko_nieve.png"
+  },
+  {
+    "weatherCode": 73,
+    "label": "Nieve moderada",
+    "hourIcon": "❄️",
+    "class": "snowy",
+    "intensity":"heavy",
+    "backgroundColor": "#A9CCE3",
+    "charIcon": "./assets/img/nezuko_nieve.png"
+  },
+  {
+    "weatherCode": 75,
+    "label": "Nieve fuerte",
+    "hourIcon": "❄️",
+    "class": "snowy",
+    "intensity":"heavy",
+    "backgroundColor": "#D6EAF8",
+    "charIcon": "./assets/img/nezuko_nieve.png"
+  },
+  {
+    "weatherCode": 77,
+    "label": "Granos de nieve",
+    "hourIcon": "❄️",
+    "class": "snowy",
+    "intensity":"low",
+    "backgroundColor": "#EBEDEF",
+    "charIcon": "./assets/img/nezuko_nieve.png"
+  },
+  {
+    "weatherCode": 80,
+    "label": "Chubascos ligeros",
+    "hourIcon": "🌦️",
+    "class": "rainy",
+    "intensity":"medium",
+    "backgroundColor": "#85C1E9",
+    "charIcon": "./assets/img/tomioka_lluvia.png"
+  },
+  {
+    "weatherCode": 81,
+    "label": "Chubascos moderados",
+    "hourIcon": "🌦️",
+    "class": "rainy",
+    "intensity":"medium",
+    "backgroundColor": "#3498DB",
+    "charIcon": "./assets/img/tomioka_lluvia.png"
+  },
+  {
+    "weatherCode": 82,
+    "label": "Chubascos violentos",
+    "hourIcon": "🌧️⛈️",
+    "class": "stormy",
+    "intensity":"heavy",
+    "backgroundColor": "#2874A6",
+    "charIcon": "./assets/img/zenitsu_tormenta.png"
+  },
+  {
+    "weatherCode": 85,
+    "label": "Chubascos de nieve ligeros",
+    "hourIcon": "🌨️",
+    "class": "snowy",
+    "intensity":"low",
+    "backgroundColor": "#AED6F1",
+    "charIcon": "./assets/img/nezuko_nieve.png"
+  },
+  {
+    "weatherCode": 86,
+    "label": "Chubascos de nieve fuertes",
+    "hourIcon": "🌨️",
+    "class": "snowy",
+    "intensity":"heavy",
+    "backgroundColor": "#2E4053",
+    "charIcon": "./assets/img/nezuko_nieve.png"
+  },
+  {
+    "weatherCode": 95,
+    "label": "Tormenta",
+    "hourIcon": "⛈️",
+    "class": "stormy",
+    "intensity":"heavy",
+    "backgroundColor": "#2C3E50",
+    "charIcon": "./assets/img/zenitsu_tormenta.png"
+  },
+  {
+    "weatherCode": 96,
+    "label": "Tormenta con granizo ligero",
+    "hourIcon": "⛈️🧊",
+    "class": "stormy",
+    "intensity":"heavy",
+    "backgroundColor": "#4A235A",
+    "charIcon": "./assets/img/zenitsu_tormenta.png"
+  },
+  {
+    "weatherCode": 99,
+    "label": "Tormenta con granizo fuerte",
+    "hourIcon": "⛈️🚨",
+    "class": "stormy",
+    "intensity":"heavy",
+    "backgroundColor": "#17202A",
+    "charIcon": "./assets/img/zenitsu_tormenta.png"
+  },
+  {
+    "weatherCode": -1,
+    "label": "Clima desconocido",
+    "hourIcon": "❓",
+    "class": "unknown",
+    "intensity":"N/A",
+    "backgroundColor": "#333333",
+    "charIcon": "./assets/img/kocho_noche_despejada.png"
+  }
+]
