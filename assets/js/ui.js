@@ -1,6 +1,7 @@
 import { getWeatherConfig } from './weather.js';
 const flash = document.getElementById('flash');
 const charImg = document.getElementById('icon');
+const weatherCard = document.querySelector('.weather-card');
 
 const flashColors = {
     'rengoku': '#FF4500',
