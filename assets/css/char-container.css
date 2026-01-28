@@ -19,3 +19,21 @@
     display: block;
     overflow: visible;
 }
+
+#flash {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180%;
+    height: 180%;
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(circle, var(--flash-color, white) 0%, transparent 70%);
+    opacity: 0;
+    z-index: 10;
+    pointer-events: none;
+    border-radius: 50%;
+}
+.flash-active {
+    animation: anime-flash 7s cubic-bezier(0.25, 1, 0.5, 1);
+}
