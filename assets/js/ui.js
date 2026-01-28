@@ -10,3 +10,16 @@ const flashColors = {
     'kocho': '#9370DB',
     'nezuko': '#FF1493'
 };
+export function executeFlash(){
+    let color = 'white';
+    const src = charImg.src.toLowerCase();
+    Object.keys(flashColors).forEach(name => {
+        if (src.includes(name)) {
+            color = flashColors[name];
+        }
+    });
+    flash.style.setProperty('--flash-color', color);
+    flash.classList.remove('flash-active');
+    void flash.offsetWidth;
+    flash.classList.add('flash-active');
+}
