@@ -122,3 +122,22 @@ async function updateWeatherDataByHours(data, hourIcon){
         hourlyList.innerHTML += hourHTML;
     }
 }
+
+export async function updateDisplay(data, city, weatherConfig) {
+
+    const cityText = document.getElementById('city-name');
+    const dateText = document.getElementById('date');
+    cityText.textContent = city;
+
+    cityText.classList.remove('loading');
+
+    const now = new Date();
+    dateText.innerText = now.toLocaleDateString('es-ES', {
+        weekday: 'short', day: 'numeric', month: 'short'
+    });
+    updateCurrentWeatherData(data, weatherConfig.label, weatherConfig.charIcon);
+    updateWeatherDataByHours(data, weatherConfig.hourIcon);
+    updateBackgound(weatherConfig.backgroundColor);
+    weatherAnimation(weatherConfig.class, weatherConfig.intensity);
+
+}
