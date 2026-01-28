@@ -40,3 +40,25 @@ geoBtn.addEventListener("click", async () => {
   const data = await fetchWeatherData(lat, lon);
   updateDisplay(data, city, globalWeatherConfig);
 });
+cityInput.addEventListener("keydown", async (e) => {
+  if (e.key !== "Enter") return;
+  if (e.key === "Enter") {
+    const city = cityInput.value.trim();
+    console.log("city " + city);
+    try {
+      const { lat, lon } = await getCoordinatesFromCity(city);
+      const data = await fetchWeatherData(lat, lon);
+      updateDisplay(data, city, globalWeatherConfig);
+      searchBox.classList.remove("active");
+      searchBtn.classList.remove("active");
+      cityInput.classList.remove("error");
+    } catch (error) {
+      console.log("city no encontrado");
+      cityInput.classList.add("error");
+    }
+    cityInput.value = "";
+  }
+});
+charContainer.addEventListener("click", () => {
+  executeFlash();
+});
