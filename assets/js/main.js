@@ -21,3 +21,22 @@ document.addEventListener("DOMContentLoaded", async () => {
   );
   updateDisplay(weatherData, city, globalWeatherConfig);
 });
+searchBtn.addEventListener("click", () => {
+  searchBox.classList.toggle("active");
+  searchBtn.classList.toggle("active");
+  if (searchBox.classList.contains("active")) {
+    cityInput.focus();
+  }
+});
+geoBtn.addEventListener("click", async () => {
+  if (searchBox.classList.contains("active")) {
+    searchBox.classList.remove("active");
+    searchBtn.classList.remove("active");
+  }
+
+  const { lat, lon } = await geolocate();
+
+  const city = await getCityFromCoordinates(lat, lon);
+  const data = await fetchWeatherData(lat, lon);
+  updateDisplay(data, city, globalWeatherConfig);
+});
