@@ -28,3 +28,22 @@
                 <div class="cloud c4"></div>
                 <div class="cloud c5"></div>
             </div>
+            <div class="search-wrapper">
+                <div id="search-box" class="search-box">
+                    <input
+                        type="text"
+                        id="city-input"
+                        placeholder="Buscar ciudad..."
+                        list="city-suggestions"
+                        autocomplete="off"
+                        name="search-location-demon" >
+                <datalist id="city-suggestions"></datalist>
+                </div>
+                <div class="buttons-group">
+                    <button id="search-btn" class="main-btn" title="Buscar ciudad">
+                        <span class="lupa">🔍</span>
+                        <span class="cerrar">❌</span>
+                    </button>
+                    <button id="geo-btn" class="main-btn" title="Usar mi ubicación">📍</button>
+                </div>
+            </div>
