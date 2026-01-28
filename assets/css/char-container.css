@@ -1,0 +1,21 @@
+.char-icon {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    transform: scale(1.05);
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.char-icon {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    overflow: visible;
+}
