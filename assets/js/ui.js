@@ -1,4 +1,3 @@
-import { getWeatherConfig } from './weather.js';
 const flash = document.getElementById('flash');
 const charImg = document.getElementById('icon');
 const weatherCard = document.querySelector('.weather-card');
@@ -127,10 +126,12 @@ async function updateWeatherDataByHours(data, hourIcon){
 function updateDailyForecast(data) {
     const dailyList = document.getElementById('daily-list');
     if (!dailyList) return;
+    if (!data?.daily?.time) return;
 
     dailyList.innerHTML = '';
 
     const days = data.daily.time;
+
     for (let i = 1; i <= 5; i++) {
         const date = new Date(days[i]);
         const dayName = date.toLocaleDateString('es-ES', { weekday: 'short' });
