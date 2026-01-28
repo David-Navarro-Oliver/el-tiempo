@@ -28,3 +28,29 @@ export async function getCoordinatesFromCity(city) {
     console.error("Error obteniendo las coordenadas de la ciudad" + city, error);
   }
 }
+export function geolocate() {
+  return new Promise((resolve, reject) => {
+    const latMadrid = 40.416782;
+    const lonMadrid = -3.703507;
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          console.log(`Ubicación detectada: ${lat}, ${lon}`);
+
+          resolve({ lat, lon });
+        },
+        (error) => {
+          console.warn("Error/Denegado. Usando Pallejá por defecto.");
+
+          resolve({ lat: latMadrid, lon: lonMadrid });
+        },
+      );
+    } else {
+      console.error("No soportado.");
+      resolve({ lat: latMadrid, lon: lonMadrid });
+    }
+  });
+}
