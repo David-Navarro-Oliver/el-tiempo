@@ -70,3 +70,55 @@ switch (type) {
             }
     }
 }
+
+async function updateBackgound(backgroundColor){
+
+    const bgImage = 'url("./assets/img/background.png")';
+
+    const bgColor = backgroundColor;
+
+    document.body.style.backgroundColor = bgColor;
+
+    document.documentElement.style.setProperty('--bg-gradient', bgColor);
+
+}
+
+ async function updateCurrentWeatherData(data, label, charIconPath){
+
+    const tempText = document.getElementById('temp');
+    const windText = document.getElementById('wind');
+    const humidityText = document.getElementById('humidity');
+    const desctext = document.getElementById('desc');
+    const charIcon = document.getElementById('icon');
+    tempText.innerText = Math.round(data.current_weather.temperature);
+    windText.innerText = data.current_weather.windspeed;
+    humidityText.innerText = data.hourly.relativehumidity_2m[0];
+
+    desctext.innerText = label;
+    charIcon.src = charIconPath;
+}
+
+async function updateWeatherDataByHours(data, hourIcon){
+
+    const hourlyList = document.getElementById('hourly-list');
+    hourlyList.innerHTML = '';
+    const currentHour = new Date().getHours();
+    for (let i = 0; i < 24; i++) {
+        const index = currentHour + i;
+
+        const timeStr = data.hourly.time[index];
+        const time = new Date(timeStr).getHours() + ":00";
+
+        const temp = Math.round(data.hourly.temperature_2m[index]);
+
+        const hourHTML = `
+            <div class="hour-item">
+                <span class="hour-time">${i === 0 ? 'Ahora' : time}</span>
+                <span class="hour-icon">${hourIcon}</span>
+                <span class="hour-temp">${temp}°</span>
+            </div>
+        `;
+
+        hourlyList.innerHTML += hourHTML;
+    }
+}
