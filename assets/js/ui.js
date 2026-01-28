@@ -123,6 +123,31 @@ async function updateWeatherDataByHours(data, hourIcon){
     }
 }
 
+function updateDailyForecast(data) {
+    const dailyList = document.getElementById('daily-list');
+    if (!dailyList) return;
+
+    dailyList.innerHTML = '';
+
+    const days = data.daily.time;
+    for (let i = 1; i <= 5; i++) {
+        const date = new Date(days[i]);
+        const dayName = date.toLocaleDateString('es-ES', { weekday: 'short' });
+
+        const max = Math.round(data.daily.temperature_2m_max[i]);
+        const min = Math.round(data.daily.temperature_2m_min[i]);
+
+        const dayHTML = `
+            <div class="day-item">
+                <span class="day-name">${dayName}</span>
+                <span class="day-temps">${min}° / ${max}°</span>
+            </div>
+        `;
+
+        dailyList.innerHTML += dayHTML;
+    }
+}
+
 export async function updateDisplay(data, city, weatherConfig) {
 
     const cityText = document.getElementById('city-name');
@@ -137,6 +162,7 @@ export async function updateDisplay(data, city, weatherConfig) {
     });
     updateCurrentWeatherData(data, weatherConfig.label, weatherConfig.charIcon);
     updateWeatherDataByHours(data, weatherConfig.hourIcon);
+    updateDailyForecast(data);
     updateBackgound(weatherConfig.backgroundColor);
     weatherAnimation(weatherConfig.class, weatherConfig.intensity);
 
