@@ -7,6 +7,18 @@ export async function fetchWeatherData(lat, lon) {
         console.error("Error cargando datos:", err);
     }
 }
+export async function getWeatherConfig(code) {
+
+    let globalWeatherConfig = [];
+    globalWeatherConfig = await loadConfig();
+
+    let info = globalWeatherConfig.find(item => item.weatherCode === code);
+
+    if (!info) {
+        info = globalWeatherConfig.find(item => item.weatherCode === -1);
+    }
+    return info;
+}
 async function loadConfig() {
     const response = await fetch('../assets/data/weather-config.json');
     return await response.json();
