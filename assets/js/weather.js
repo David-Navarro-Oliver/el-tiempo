@@ -1,31 +1,24 @@
 export async function fetchWeatherData(lat, lon) {
-  try {
-    const response = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=temperature_2m,relativehumidity_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`,
-    );
-    const data = await response.json();
-    return data;
-  } catch (err) {
-    console.error("Error cargando datos:", err);
-  }
+  const response = await fetch(
+    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=temperature_2m,relativehumidity_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`,
+  );
+
+  if (!response.ok) throw new Error("Open-Meteo no respondió OK");
+  return await response.json();
 }
+
 export async function getWeatherConfig(code) {
-  let globalWeatherConfig = [];
-  globalWeatherConfig = await loadConfig();
+  const config = await loadConfig();
 
-  let info = globalWeatherConfig.find((item) => item.weatherCode === code);
-
-  if (!info) {
-    info = globalWeatherConfig.find((item) => item.weatherCode === -1);
-  }
+  let info = config.find((item) => item.weatherCode === code);
+  if (!info) info = config.find((item) => item.weatherCode === -1);
   return info;
 }
+
 async function loadConfig() {
-  const response = await fetch("./assets/data/weather-config.json");
+  const url = new URL("assets/data/weather-config.json", window.location.href);
+  const response = await fetch(url.toString(), { cache: "no-store" });
 
-  if (!response.ok) {
-    throw new Error("No se pudo cargar weather-config.json");
-  }
-
+  if (!response.ok) throw new Error("No se pudo cargar weather-config.json");
   return await response.json();
 }
