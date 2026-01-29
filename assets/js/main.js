@@ -77,6 +77,8 @@ cityInput.addEventListener("keydown", async (e) => {
   if (e.key !== "Enter") return;
   if (e.key === "Enter") {
     const city = cityInput.value.trim();
+    const formattedCity =
+      city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
     console.log("city " + city);
     try {
       const { lat, lon } = await getCoordinatesFromCity(city);
@@ -86,7 +88,7 @@ cityInput.addEventListener("keydown", async (e) => {
       globalWeatherConfig = await getWeatherConfig(
         data.current_weather.weathercode,
       );
-      updateDisplay(data, city, globalWeatherConfig);
+      updateDisplay(data, formattedCity, globalWeatherConfig);
 
       setLoading(false);
       searchBox.classList.remove("active");
