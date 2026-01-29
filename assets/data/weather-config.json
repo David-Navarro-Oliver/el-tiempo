@@ -5,7 +5,7 @@
     "hourIcon": "☀️",
     "class": "sunny",
     "intensity":"N/A",
-    "backgroundColor": "#87CEEB", 
+    "backgroundColor": "#4DA3FF", 
     "charIcon": "./assets/img/rengoku_sol.png"
   },
   {
@@ -14,7 +14,7 @@
     "hourIcon": "🌤️",
     "class": "sunny",
     "intensity":"N/A",
-    "backgroundColor": "#38B0DE", 
+    "backgroundColor": "#6BB8FF", 
     "charIcon": "./assets/img/rengoku_sol.png"
   },
   {
@@ -23,7 +23,7 @@
     "hourIcon": "⛅",
     "class": "cloudy",
     "intensity":"low",
-    "backgroundColor": "#6db4ed",
+    "backgroundColor": "#8FC9FF",
     "charIcon": "./assets/img/rengoku_sol.png"
   },
   {
@@ -32,7 +32,7 @@
     "hourIcon": "☁️",
     "class": "cloudy",
     "intensity":"high",
-    "backgroundColor": "#6db4ed",
+    "backgroundColor": "#4F6D8A",
     "charIcon": "./assets/img/rengoku_sol.png"
   },
   {
