@@ -1,56 +1,75 @@
 export async function getCityFromCoordinates(lat, lon) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 2500);
+
   try {
     const geoUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=es`;
-    const geoRes = await fetch(geoUrl);
-    const geoData = await geoRes.json();
+    const geoRes = await fetch(geoUrl, { signal: controller.signal });
 
-    const cityName = geoData.city || geoData.locality || "Tu ubicación";
-    return cityName;
-  } catch (error) {
-    console.error("Error obteniendo la ciudad:", error);
+    if (!geoRes.ok) return "Tu ubicación";
+
+    const geoData = await geoRes.json();
+    return geoData.city || geoData.locality || "Tu ubicación";
+  } catch {
     return "Tu ubicación";
+  } finally {
+    clearTimeout(timeoutId);
   }
 }
 
 export async function getCoordinatesFromCity(city) {
-  const url = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=es&format=json&t=${new Date().getTime()}`;
-  try {
-    const response = await fetch(url);
-    const result = await response.json();
-    console.log(result);
-    if (result.results[0].latitude && result.results[0].longitude) {
-      const lat = result.results[0].latitude;
-      const lon = result.results[0].longitude;
-      const display_name = result.results[0].name;
-      return { lat, lon, display_name };
-    }
-  } catch (error) {
-    console.error("Error obteniendo las coordenadas de la ciudad" + city, error);
+  const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
+    city,
+  )}&count=1&language=es&format=json&t=${Date.now()}`;
+
+  const response = await fetch(url);
+  const result = await response.json();
+
+  if (!result?.results?.length) {
+    throw new Error("Ciudad no encontrada");
   }
+
+  const first = result.results[0];
+
+  if (
+    typeof first.latitude !== "number" ||
+    typeof first.longitude !== "number"
+  ) {
+    throw new Error("Coordenadas inválidas");
+  }
+
+  return {
+    lat: first.latitude,
+    lon: first.longitude,
+    display_name: first.name,
+  };
 }
+
 export function geolocate() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const latMadrid = 40.416782;
     const lonMadrid = -3.703507;
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-          console.log(`Ubicación detectada: ${lat}, ${lon}`);
-
-          resolve({ lat, lon });
-        },
-        (error) => {
-          console.warn("Error/Denegado. Usando Pallejá por defecto.");
-
-          resolve({ lat: latMadrid, lon: lonMadrid });
-        },
-      );
-    } else {
-      console.error("No soportado.");
+    if (!navigator.geolocation) {
       resolve({ lat: latMadrid, lon: lonMadrid });
+      return;
     }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        resolve({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        });
+      },
+      () => {
+        resolve({ lat: latMadrid, lon: lonMadrid });
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 8000,
+        maximumAge: 60000,
+      },
+    );
   });
 }
