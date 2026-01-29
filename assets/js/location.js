@@ -4,14 +4,14 @@ export async function getCityFromCoordinates(lat, lon) {
     const geoRes = await fetch(geoUrl);
     const geoData = await geoRes.json();
 
-    console.log("Datos de ciudad recibidos:", geoData);
     const cityName = geoData.city || geoData.locality || "Tu ubicación";
     return cityName;
   } catch (error) {
     console.error("Error obteniendo la ciudad:", error);
-    return "Ubicación desconocida";
+    return "Tu ubicación";
   }
 }
+
 export async function getCoordinatesFromCity(city) {
   const url = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=es&format=json&t=${new Date().getTime()}`;
   try {
