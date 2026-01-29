@@ -8,7 +8,7 @@ El proyecto consume datos meteorológicos reales y los combina con una **experie
 
 ## 🚀 Demo online (GitHub Pages)
 
-👉 **https://TU-USUARIO.github.io/el-tiempo/**
+👉 **[Ver demo en GitHub Pages](https://david-navarro-oliver.github.io/el-tiempo/)**
 
 La aplicación está desplegada mediante **GitHub Pages** directamente desde el repositorio, permitiendo probarla sin instalación previa.
 
@@ -152,3 +152,4 @@ La IA se ha utilizado **como herramienta de apoyo**, no como sustituto del desar
 ## 👤 Autor
 
 Proyecto desarrollado de forma individual como práctica de consumo de APIs y diseño de aplicaciones web orientadas a móvil.
+
