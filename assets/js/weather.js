@@ -20,6 +20,8 @@ export async function getWeatherConfig(code) {
     return info;
 }
 async function loadConfig() {
-    const response = await fetch('../assets/data/weather-config.json');
-    return await response.json();
+  const url = new URL("../data/weather-config.json", import.meta.url);
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("No se pudo cargar weather-config.json");
+  return await response.json();
 }
