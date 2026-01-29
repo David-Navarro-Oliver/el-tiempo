@@ -14,16 +14,16 @@ const charContainer = document.getElementById("char-container");
 
 let globalWeatherConfig = null;
 
+const DEFAULT_CITY = "Pallejà";
+const DEFAULT_LAT = 41.423;
+const DEFAULT_LON = 1.995;
+
 function setLoading(isLoading) {
   const cityName = document.getElementById("city-name");
   if (!cityName) return;
 
-  if (isLoading) {
-    cityName.textContent = "Cargando...";
-    cityName.classList.add("loading");
-  } else {
-    cityName.classList.remove("loading");
-  }
+  if (isLoading) cityName.classList.add("loading");
+  else cityName.classList.remove("loading");
 
   cityInput.disabled = isLoading;
   searchBtn.disabled = isLoading;
@@ -33,20 +33,44 @@ function setLoading(isLoading) {
   geoBtn.style.opacity = isLoading ? "0.6" : "1";
 }
 
+function setCityName(name) {
+  const cityName = document.getElementById("city-name");
+  if (!cityName) return;
+  cityName.textContent = name || DEFAULT_CITY;
+}
+
+async function loadByCoords(lat, lon, cityLabel) {
+  const weatherData = await fetchWeatherData(lat, lon);
+  globalWeatherConfig = await getWeatherConfig(
+    weatherData.current_weather.weathercode,
+  );
+  updateDisplay(weatherData, cityLabel, globalWeatherConfig);
+  return weatherData;
+}
+
+async function loadDefaultCity() {
+  setCityName(DEFAULT_CITY);
+  await loadByCoords(DEFAULT_LAT, DEFAULT_LON, DEFAULT_CITY);
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   setLoading(true);
+
   try {
     const { lat, lon } = await geolocate();
-    const city = await getCityFromCoordinates(lat, lon);
-    const weatherData = await fetchWeatherData(lat, lon);
 
-    globalWeatherConfig = await getWeatherConfig(
-      weatherData.current_weather.weathercode,
-    );
+    setCityName(DEFAULT_CITY);
 
-    updateDisplay(weatherData, city, globalWeatherConfig);
+    const weatherPromise = loadByCoords(lat, lon, DEFAULT_CITY);
+
+    getCityFromCoordinates(lat, lon)
+      .then((city) => setCityName(city))
+      .catch(() => setCityName(DEFAULT_CITY));
+
+    await weatherPromise;
   } catch (e) {
     console.error(e);
+    await loadDefaultCity();
   } finally {
     setLoading(false);
   }
@@ -64,7 +88,7 @@ searchBtn.addEventListener("click", () => {
 });
 
 geoBtn.addEventListener("click", async () => {
-  if (searchBtn.disabled) return;
+  if (geoBtn.disabled) return;
 
   if (searchBox.classList.contains("active")) {
     searchBox.classList.remove("active");
@@ -72,18 +96,22 @@ geoBtn.addEventListener("click", async () => {
   }
 
   setLoading(true);
+
   try {
     const { lat, lon } = await geolocate();
-    const city = await getCityFromCoordinates(lat, lon);
-    const data = await fetchWeatherData(lat, lon);
 
-    globalWeatherConfig = await getWeatherConfig(
-      data.current_weather.weathercode,
-    );
+    setCityName(DEFAULT_CITY);
 
-    updateDisplay(data, city, globalWeatherConfig);
+    const weatherPromise = loadByCoords(lat, lon, DEFAULT_CITY);
+
+    getCityFromCoordinates(lat, lon)
+      .then((city) => setCityName(city))
+      .catch(() => setCityName(DEFAULT_CITY));
+
+    await weatherPromise;
   } catch (e) {
     console.error(e);
+    await loadDefaultCity();
   } finally {
     setLoading(false);
   }
@@ -92,26 +120,25 @@ geoBtn.addEventListener("click", async () => {
 cityInput.addEventListener("keydown", async (e) => {
   if (e.key !== "Enter") return;
 
-  const city = cityInput.value.trim();
-  if (!city) return;
+  const raw = cityInput.value.trim();
+  if (!raw) return;
 
   setLoading(true);
+
   try {
-    const { lat, lon, display_name } = await getCoordinatesFromCity(city);
-    const data = await fetchWeatherData(lat, lon);
+    const { lat, lon, display_name } = await getCoordinatesFromCity(raw);
 
-    globalWeatherConfig = await getWeatherConfig(
-      data.current_weather.weathercode,
-    );
+    const cityLabel = display_name || raw;
+    setCityName(cityLabel);
 
-    updateDisplay(data, display_name || city, globalWeatherConfig);
+    await loadByCoords(lat, lon, cityLabel);
 
     searchBox.classList.remove("active");
     searchBtn.classList.remove("active");
     cityInput.classList.remove("error");
     cityInput.value = "";
-  } catch (e2) {
-    console.error(e2);
+  } catch (err) {
+    console.error(err);
     cityInput.classList.add("error");
   } finally {
     setLoading(false);
