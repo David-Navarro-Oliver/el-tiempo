@@ -35,9 +35,9 @@ geoBtn.addEventListener("click", async () => {
   }
 
   const { lat, lon } = await geolocate();
-
   const city = await getCityFromCoordinates(lat, lon);
   const data = await fetchWeatherData(lat, lon);
+  globalWeatherConfig = await getWeatherConfig(data.current_weather.weathercode);
   updateDisplay(data, city, globalWeatherConfig);
 });
 cityInput.addEventListener("keydown", async (e) => {
@@ -48,6 +48,7 @@ cityInput.addEventListener("keydown", async (e) => {
     try {
       const { lat, lon } = await getCoordinatesFromCity(city);
       const data = await fetchWeatherData(lat, lon);
+      globalWeatherConfig = await getWeatherConfig(data.current_weather.weathercode);
       updateDisplay(data, city, globalWeatherConfig);
       searchBox.classList.remove("active");
       searchBtn.classList.remove("active");
