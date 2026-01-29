@@ -12,21 +12,18 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-
-    background-image: linear-gradient(var(--bg-gradient), var(--bg-gradient)),
-                      var(--bg-url);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-color);
-
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-blend-mode: multiply;
+  font-family: 'Inter', sans-serif;
+  background-image: linear-gradient(var(--bg-gradient), var(--bg-gradient)), var(--bg-url);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: var(--text-color);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
 }
 
 .app-container {
