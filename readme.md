@@ -14,11 +14,11 @@ La aplicación está desplegada mediante **GitHub Pages** directamente desde el 
 
 ---
 
-## 📸 Captura del resultado final
+## 📸 Capturas del proyecto
 
-> Vista en dispositivo móvil (diseño mobile-first)
+> Diferentes estados meteorológicos representados mediante personajes del anime *Kimetsu no Yaiba*.
 
-![Captura de la aplicación](assets/img/screenshot.png)
+![Capturas del proyecto](assets/img/demo-climas.png)
 
 ---
 
@@ -40,24 +40,27 @@ La aplicación está desplegada mediante **GitHub Pages** directamente desde el 
 
 Las imágenes utilizadas pertenecen al anime **Kimetsu no Yaiba (Demon Slayer)**.
 
-Los personajes se han seleccionado de forma **simbólica**, relacionando su personalidad y técnica de combate con el tipo de clima mostrado:
+Los personajes han sido seleccionados de forma **intencionada y simbólica**, relacionando su personalidad y estilo de combate con distintos estados meteorológicos, para reforzar la experiencia visual de la aplicación:
 
-- 🔥 **Kyojuro Rengoku** (Respiración del Fuego)  
-  → Clima soleado o despejado. Representa energía, luz y calor.
+- 🔥 **Kyojuro Rengoku** — Clima soleado  
+  Su *Respiración del Fuego* representa energía, calor y luz, por lo que aparece en días despejados.
 
-- 🌊 **Giyu Tomioka** (Respiración del Agua)  
-  → Lluvia y climas húmedos.
+- 🌦️ **Tanjiro Kamado** — Sol y lluvia  
+  Asociado a climas variables y transiciones, reflejando su evolución constante y adaptabilidad.
 
-- ⚡ **Zenitsu Agatsuma** (Respiración del Rayo)  
-  → Tormentas eléctricas y relámpagos.
+- 🌊 **Giyu Tomioka** — Lluvia  
+  Su *Respiración del Agua* encaja de forma natural con climas húmedos y lluviosos.
 
-- ❄️ **Nezuko Kamado**  
-  → Nieve y climas fríos.
+- ⚡ **Zenitsu Agatsuma** — Tormenta  
+  Representa tormentas eléctricas y relámpagos por su *Respiración del Rayo*.
 
-- 🌥️ **Tanjiro Kamado**  
-  → Estados intermedios (nublado, clima variable).
+- ❄️ **Nezuko Kamado** — Nieve  
+  Asociada a climas fríos y condiciones de nieve.
 
-Esta decisión es **puramente estética y de UX**, pensada para hacer la aplicación más visual y atractiva, sin afectar al funcionamiento técnico.
+- 🌫️ **Muichiro Tokito** — Niebla  
+  Su carácter etéreo y su presencia silenciosa encajan con condiciones de baja visibilidad.
+
+Esta elección es **puramente estética y de UX**, pensada para hacer la aplicación más visual y atractiva, sin afectar al funcionamiento técnico ni a la precisión de los datos meteorológicos.
 
 ---
 
@@ -124,7 +127,7 @@ Este enfoque facilita la **legibilidad**, el **mantenimiento** y la **escalabili
 
 ---
 
-## 🤖 Uso de IA (obligatorio)
+## 🤖 Uso de IA
 
 He utilizado **IA generativa (ChatGPT)** como herramienta de apoyo para:
 
@@ -133,8 +136,7 @@ He utilizado **IA generativa (ChatGPT)** como herramienta de apoyo para:
 - Mejora del naming y aplicación de clean code
 - Detección y corrección de errores lógicos
 - Optimización del flujo de datos al cambiar de ciudad
-- Ajustes de UX/UI en versión móvil (loading state, refinamientos)
-- Revisión del cumplimiento de la rúbrica del proyecto
+- Ajustes de UX/UI en versión móvil (estado de carga, refinamientos)
 
 La IA se ha utilizado **como herramienta de apoyo**, no como sustituto del desarrollo ni de la toma de decisiones técnicas.
 
@@ -145,11 +147,9 @@ La IA se ha utilizado **como herramienta de apoyo**, no como sustituto del desar
 ✔ Funcional  
 ✔ Responsive  
 ✔ Desplegado en GitHub Pages  
-✔ Cumple la rúbrica del ejercicio
 
 ---
 
 ## 👤 Autor
 
 Proyecto desarrollado de forma individual como práctica de consumo de APIs y diseño de aplicaciones web orientadas a móvil.
-
